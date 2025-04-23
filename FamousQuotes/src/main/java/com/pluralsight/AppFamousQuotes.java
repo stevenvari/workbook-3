@@ -16,8 +16,18 @@ public class AppFamousQuotes {
 
         System.out.println("Enter a number between 1 - 10 for choose a quote : ");
         int number = scanner.nextInt();
-        System.out.println("your quote is: " + famousQuotes[number -1]);
+        try {
+            System.out.println("your quote is: " + famousQuotes[number -1]);
+        }catch (Exception e){
+            System.out.println("your number was out of range! ");
+        }
 
+
+
+
+
+
+        scanner.close();
 
     }
 }
