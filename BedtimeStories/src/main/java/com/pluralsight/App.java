@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
 
-        String stories =("\"Goldilocks\", \"Hansel & Gretel\" \"Mary had a little lamb\"");
+        String stories =("\"goldilocks\", \"hansel_and_gretel\" \"mary_had_a_little_lamb\"");
         System.out.println("which story would you like? " + stories);
 
         Scanner scanner = new Scanner(System.in);
@@ -16,9 +16,9 @@ public class App {
 
 
         try {
-            FileInputStream fis = new FileInputStream("DataFiles/" + storyName);
+            FileInputStream fis = new FileInputStream("DataFiles/" + storyName + ".txt");
             Scanner scanner1 = new Scanner(fis);
-            String storyChoice;
+
 
             String line;
             while (scanner1.hasNextLine()){
@@ -27,7 +27,8 @@ public class App {
         }
         scanner.close();
         }catch (FileNotFoundException e){
-            System.out.println("file not found. ");
+           // System.out.println("file not found. ");
+            System.out.println("File not found: " + "DataFiles/" + storyName);
 
         }
 
