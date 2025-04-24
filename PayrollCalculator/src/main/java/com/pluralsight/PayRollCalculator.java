@@ -1,21 +1,31 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class PayRollCalculator {
     public static void main(String[] args) {
 
 
         try {
-            FileReader fileReader = new FileReader("DataFile\\employees.csv");
+            Scanner scanner = new Scanner(System.in);
 
+            System.out.println("Enter the name of the employee file ");
+            String inputFile = scanner.nextLine();
+
+            System.out.println("Enter the name of the payroll output file to create: ");
+            String output = scanner.nextLine();
+
+
+            FileReader fileReader = new FileReader("DataFile/" + inputFile);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String headerLine = bufferedReader.readLine();
-
             String input;
+
+            FileWriter fileWriter = new FileWriter("DataFile/" + output);
+            fileWriter.write("id|name|gross pay\n");
+
+            bufferedReader.readLine();
 
             while ((input = bufferedReader.readLine()) != null){
                 System.out.println(input);
@@ -34,10 +44,13 @@ public class PayRollCalculator {
 
             }
             bufferedReader.close();
+            fileWriter.close();
+
 
 
         } catch (IOException e) {
-           // throw new RuntimeException(e);
+          System.out.println("Error reading file ");
         }
+
     }
 }

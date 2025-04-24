@@ -28,7 +28,7 @@ public class App {
         scanner.close();
         }catch (FileNotFoundException e){
            // System.out.println("file not found. ");
-            System.out.println("File not found: " + "DataFiles/" + storyName);
+            System.out.println("File not found try again ");
 
         }
 
